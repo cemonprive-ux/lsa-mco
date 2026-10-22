@@ -160,6 +160,7 @@ const PH=[
 {k:'ph',t:"M2-Phonologie avec retour de l’IA",d:"Sons consonnes, sons voyelles, accentuation de mot et Wrap it up : enregistre-toi, l'IA juge un point précis, corrigé audio.",h:'phonologie-ia-mco.html'}];
 const CR=[
 {k:'cr',t:"1-Entraînement CR pas à pas: 'The effects of an internship' 180 mots",d:"Entraînement guidé en 6 étapes, work.chron.com, novembre 2020.",h:'internship-compte-rendu.html'},
+{k:'cr',t:"2-Entraînement CR pas à pas: 'The Great Resignation' 180 mots",d:"Entraînement guidé en 6 étapes, The Atlantic, octobre 2021.",h:'great-resignation-compte-rendu.html'},
 {k:'cr',t:"'Awkward and humiliating'…",d:"Entraînement guidé en 5 étapes, The Guardian, mai 2026.",h:'ai-interviews-compte-rendu.html'},
 {k:'cr',t:"UK's 'anxious generation'…",d:"Entraînement guidé en 6 étapes, The Guardian, mai 2026.",h:'anxious-generation-compte-rendu.html'},
 {k:'cr',t:'"Less stress, more energy"…',d:"Entraînement guidé en 5 étapes, The Sunday Times.",h:'compte-rendu-pas-a-pas.html'}];
@@ -179,7 +180,7 @@ const foot=`<footer class="foot"><img class="l" src="assets/lsa-logo.png" alt="L
 const V={
 home(){let l=null;try{l=JSON.parse(localStorage.getItem('mco-last'))}catch(_){}
 return `<section class="hello"><h1>BTS MCO <span>Toolbox</span></h1><p>La phonologie, le compte rendu pas à pas, les connecteurs logiques et la culture générale.</p>${l?`<a class="resume" href="${l.h}"><span class="g"><small>Reprendre</small><b>${l.t}</b></span>${ic('play',20,2.4)}</a>`:''}</section>
-${block('phonologie','M2-Phonologie','3 fiches',PH)}${block('cr','M3-Le CR pas à pas','4 fiches',CR)}${block('vocabulaire','M5-Vocabulaire','1 fiche',VO)}
+${block('phonologie','M2-Phonologie','3 fiches',PH)}${block('cr','M3-Le CR pas à pas','5 fiches',CR)}${block('vocabulaire','M5-Vocabulaire','1 fiche',VO)}
 <div class="sec"><h2>Aussi</h2></div><div class="tiles">
 <a class="tile" href="#culture"><span class="ic">${ic('globe')}</span><b>General Knowledge<small>Vidéo et podcast</small></b></a>
 <a class="tile" href="https://1cours1bot.fr" target="_blank" rel="noopener"><span class="ic bot"><img src="assets/1cours1bot-logo.png" alt=""></span><b>1cours1bot<small>Externe ↗</small></b></a></div>`},

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0f1a33"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LSA MCO"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="data:image/jpeg;base64,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"><script src="assets/app-nav.js"></script>
+<title>2-Entraînement CR pas à pas: 'The Great Resignation' 180 mots · BTS, LSA Toolbox</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/mco-favicon-32.png?v=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+:root{
+  --navy:#1a2744;--navy-deep:#0f1a33;--navy-mid:#243260;
+  --blue:#2d5fa6;--blue-deep:#21477d;--blue-light:#4a7bc8;
+  --accent:#f5b60f;--accent-deep:#c98f00;
+  --green:#2a7a4b;--red:#b5302b;--purple:#6b4ea0;
+  --bg:#f5f3ef;--surface:#ffffff;--border:#ddd5c5;
+  --text:#2a2520;--muted:#7a7060;
+  --shadow:0 2px 14px rgba(26,39,68,.10);
+  --shadow-lg:0 14px 40px rgba(26,39,68,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.topbar{background:var(--navy-deep);color:rgba(255,255,255,.7);font-size:12.5px;}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:9px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.topbar .place{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.12em;font-size:11px;}
+.topbar .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+.topbar a.back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.78);text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:4px 13px;transition:all .2s;font-size:11.5px;}
+.topbar a.back:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(200,168,75,.6);}
+.head{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,var(--blue) 135%);border-bottom:3px solid var(--accent);}
+.head::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% -10%,rgba(74,123,200,.4),transparent 55%);}
+.head-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:40px 28px 36px;}
+.breadcrumb{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.9);margin-bottom:18px;}
+.breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;}
+.breadcrumb a:hover{color:#fff;border-bottom-color:var(--accent);}
+.breadcrumb .sep{opacity:.5;}
+.breadcrumb .tag{background:var(--blue);color:#fff;border-radius:5px;padding:2px 9px;white-space:nowrap;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.head .eyebrow{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:10px;}
+.head h1{font-family:'Quicksand',serif;color:#fff;font-weight:700;font-size:clamp(2rem,4.4vw,3rem);line-height:1.06;text-wrap:balance;}
+.head h1 em{font-style:normal;color:var(--accent);}
+.head .sub{color:rgba(255,255,255,.82);font-size:clamp(15px,2vw,18px);font-style:italic;margin-top:14px;max-width:640px;}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 28px 30px;}
+.stepnav{position:sticky;top:0;z-index:30;background:rgba(245,243,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.stepnav-inner{max-width:1080px;margin:0 auto;padding:11px 28px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.stepnav .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px;}
+.stepnav a{text-decoration:none;font-size:13px;font-weight:600;color:var(--navy);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 13px;transition:all .18s;display:inline-flex;align-items:center;gap:7px;}
+.stepnav a:hover{border-color:var(--blue);color:var(--blue-deep);}
+.stepnav a .n{font-variant-numeric:tabular-nums;color:var(--blue);font-weight:700;}
+.stepnav a.done{border-color:var(--green);}
+.stepnav a.done .n{color:var(--green);}
+.intro{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;box-shadow:var(--shadow);padding:24px 28px;margin-bottom:14px;}
+.intro h2{font-family:'Quicksand',serif;color:var(--navy);font-weight:600;font-size:1.35rem;margin-bottom:6px;}
+.intro p{margin:8px 0;color:var(--text);}
+.intro .consigne{margin-top:14px;background:#faf6ec;border:1px solid var(--accent);border-radius:10px;padding:14px 18px;font-size:16px;}
+.intro .consigne b{color:var(--navy);}
+.meta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
+.meta-chip{display:inline-flex;align-items:center;gap:9px;background:#fcfbf8;border:1px solid var(--border);border-radius:10px;padding:9px 15px;font-size:14px;}
+.meta-chip b{color:var(--navy);font-variant-numeric:tabular-nums;font-size:18px;font-family:'Quicksand',serif;}
+.meta-chip span{color:var(--muted);font-size:12px;line-height:1.25;}
+.source{background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);margin-bottom:26px;overflow:hidden;}
+.source-head{background:var(--navy);color:#fff;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+.source-head .t{font-weight:700;letter-spacing:.04em;font-size:14px;display:flex;align-items:center;gap:10px;}
+.source-head .t svg{color:var(--accent);}
+.source-head .src{font-size:11.5px;color:rgba(255,255,255,.6);font-style:italic;}
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px 14px;border:1px solid var(--border);border-radius:10px;background:#fcfbf8;margin-top:18px;}
+.legend .lgl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:2px;}
+.hl-btn{cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:600;border:1px solid var(--border);background:#fcfbf8;color:var(--navy);border-radius:18px;padding:5px 13px;display:inline-flex;align-items:center;gap:7px;transition:all .15s;}
+.hl-btn .sw{width:12px;height:12px;border-radius:3px;}
+.hl-btn[aria-pressed="true"]{border-color:currentColor;}
+.hl-btn[data-k="be"]{--cc:#c8a800;}.hl-btn[data-k="num"]{--cc:#c8507a;}
+.hl-btn[data-k="prop"]{--cc:var(--green);}.hl-btn[data-k="conn"]{--cc:var(--purple);}
+.hl-btn[aria-pressed="true"]{color:var(--cc);background:color-mix(in srgb,var(--cc) 9%,#fff);}
+.hl-btn .sw{background:var(--cc);}
+.article{padding:8px 26px 24px;font-size:16.5px;line-height:1.78;}
+.article .title{font-family:'Quicksand',serif;color:var(--navy);font-weight:700;font-size:1.5rem;line-height:1.2;margin:18px 0 4px;}
+.article .standfirst{font-style:italic;color:var(--muted);margin-bottom:14px;}
+.article .byline{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.article p{margin:12px 0;text-wrap:pretty;}
+.article .sh{font-family:'Quicksand',serif;color:var(--navy);font-weight:700;font-size:1.06rem;line-height:1.3;margin:22px 0 0;}
+.article .sh+p{margin-top:6px;}
+.article mark{background:transparent;color:inherit;padding:0 1px;border-radius:3px;transition:background .15s;}
+.article.show-be .be{background:color-mix(in srgb,#c8a800 28%,#fff);box-shadow:0 0 0 1px #b89600 inset;}
+.article.show-num .num{background:color-mix(in srgb,#c8507a 22%,#fff);box-shadow:0 0 0 1px #c8507a inset;}
+.article.show-prop .prop{background:color-mix(in srgb,var(--green) 24%,#fff);box-shadow:0 0 0 1px var(--green) inset;}
+.article.show-conn .conn{background:color-mix(in srgb,var(--purple) 22%,#fff);box-shadow:0 0 0 1px var(--purple) inset;font-weight:600;}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden;scroll-margin-top:64px;}
+.step-head{display:flex;align-items:flex-start;gap:16px;padding:22px 26px 6px;}
+.step-num{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',serif;font-weight:700;font-size:20px;box-shadow:0 4px 12px rgba(45,95,166,.3);}
+.step-head .ht{flex:1;min-width:0;}
+.step-head h2{font-family:'Quicksand',serif;color:var(--navy);font-weight:600;font-size:1.5rem;line-height:1.12;}
+.step-head .obj{color:var(--muted);font-size:14.5px;margin-top:4px;}
+.step-body{padding:6px 26px 24px;}
+details.aide{margin:6px 0 18px;border:1px solid var(--border);border-radius:10px;background:#fcfbf8;overflow:hidden;}
+details.aide>summary{cursor:pointer;list-style:none;padding:11px 18px;font-size:13.5px;font-weight:700;letter-spacing:.02em;color:var(--blue-deep);display:flex;align-items:center;gap:10px;}
+details.aide>summary::-webkit-details-marker{display:none;}
+details.aide>summary .ic{transition:transform .25s;}
+details.aide[open]>summary .ic{transform:rotate(90deg);}
+details.aide .ai{padding:2px 18px 16px;font-size:15px;color:var(--text);border-top:1px solid var(--border);padding-top:14px;}
+details.aide .ai ul{margin:8px 0 4px 4px;padding-left:18px;}
+details.aide .ai li{margin:5px 0;}
+details.aide .ai code{background:#efe9da;border-radius:4px;padding:1px 6px;font-size:13px;font-family:ui-monospace,Menlo,monospace;color:var(--navy);}
+details.corr{margin:14px 0 4px;border:1px solid var(--green);border-radius:10px;background:#f1f7f2;overflow:hidden;}
+details.corr>summary{cursor:pointer;list-style:none;padding:11px 18px;font-size:13.5px;font-weight:700;color:var(--green);display:flex;align-items:center;gap:10px;}
+details.corr>summary::-webkit-details-marker{display:none;}
+details.corr>summary .ic{transition:transform .25s;}
+details.corr[open]>summary .ic{transform:rotate(90deg);}
+details.corr .ci{padding:4px 18px 16px;font-size:15px;border-top:1px solid color-mix(in srgb,var(--green) 35%,#fff);padding-top:14px;}
+details.corr .ci ul{margin:6px 0 4px 4px;padding-left:18px;}
+details.corr .ci li{margin:6px 0;}
+.corr-note{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:10px;}
+.field{margin:16px 0;}
+.field>label{display:block;font-weight:600;color:var(--navy);font-size:15px;margin-bottom:7px;}
+.field .hint{font-weight:400;color:var(--muted);font-size:13px;font-style:italic;}
+textarea,input.line{width:100%;font-family:inherit;font-size:15.5px;color:var(--text);background:#fcfbf8;border:1px solid var(--border);border-radius:9px;padding:12px 14px;line-height:1.6;resize:vertical;transition:border-color .15s,box-shadow .15s;}
+textarea:focus,input.line:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(45,95,166,.13);}
+textarea.sm{min-height:64px;}
+textarea.md{min-height:120px;}
+textarea.lg{min-height:300px;}
+.para{border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:12px 0;background:#fcfbf8;}
+.para .pl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.para-wc{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);margin-top:5px;}
+.para-wc b{font-variant-numeric:tabular-nums;color:var(--navy);}
+.cuts{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;}
+.cuts th{background:var(--navy);color:#fff;font-weight:600;font-size:12.5px;letter-spacing:.04em;padding:10px 12px;text-align:left;}
+.cuts th:last-child{width:120px;text-align:center;}
+.cuts td{border:1px solid var(--border);padding:6px;vertical-align:top;}
+.cuts textarea{border:none;background:transparent;border-radius:0;padding:6px 8px;min-height:46px;}
+.cuts textarea:focus{box-shadow:none;background:#fff;}
+.cuts input.line{border:none;background:transparent;text-align:center;padding:6px;}
+.counter{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--muted);background:#fcfbf8;border:1px solid var(--border);border-radius:20px;padding:6px 14px;margin-top:10px;}
+.counter b{font-family:'Quicksand',serif;font-size:17px;font-variant-numeric:tabular-nums;color:var(--navy);}
+.counter.ok{border-color:var(--green);color:var(--green);}
+.counter.ok b{color:var(--green);}
+.counter.over{border-color:var(--red);color:var(--red);}
+.counter.over b{color:var(--red);}
+.check{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:6px;}
+.check li{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:9px;background:#fcfbf8;transition:all .15s;}
+.check li:has(input:checked){border-color:var(--green);background:#f1f7f2;}
+.check input{flex-shrink:0;width:21px;height:21px;margin-top:2px;accent-color:var(--green);cursor:pointer;}
+.check label{flex:1;cursor:pointer;font-size:15px;color:var(--text);}
+.check li:has(input:checked) label{color:var(--green);}
+.check-foot{margin-top:14px;font-size:14px;color:var(--muted);}
+.check-foot b{color:var(--navy);font-variant-numeric:tabular-nums;}
+.toolbar{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin:6px 0 22px;}
+.btn{font-family:inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;border-radius:26px;padding:10px 20px;transition:all .18s;border:1px solid var(--border);background:var(--surface);color:var(--navy);box-shadow:var(--shadow);}
+.btn:hover{border-color:var(--accent);color:var(--accent-deep);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy);}
+.btn.primary:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);}
+.btn.ghost{box-shadow:none;}
+.btn.danger:hover{border-color:var(--red);color:var(--red);}
+.save-note{font-size:12.5px;color:var(--muted);font-style:italic;display:inline-flex;align-items:center;gap:7px;}
+.save-note .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:40px 0 6px;}
+footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;border-top:3px solid var(--accent);}
+.foot-inner{max-width:1080px;margin:0 auto;padding:30px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13px;}
+.foot-brand{display:flex;align-items:center;gap:13px;}
+.foot-brand img{width:38px;height:38px;border-radius:9px;}
+.foot-brand strong{color:#fff;font-family:'Quicksand',serif;font-weight:600;font-size:15px;display:block;}
+.foot-brand span{font-size:12px;}
+.foot-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.foot-links a{transition:color .2s;border-bottom:1px solid transparent;text-decoration:none;}
+.foot-links a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+@media(max-width:720px){
+  body{font-size:16px;}
+  .wrap{padding:30px 18px 24px;}
+  .step-head{padding:18px 18px 4px;}
+  .step-body{padding:6px 18px 20px;}
+  .source-head,.legend,.article{padding-left:18px;padding-right:18px;}
+  .stepnav-inner{padding:10px 18px;overflow-x:auto;flex-wrap:nowrap;}
+  .foot-inner{flex-direction:column;align-items:flex-start;}
+}
+@media print{
+  .topbar,.stepnav,.toolbar,.actions,footer,.legend,.save-note{display:none !important;}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.45;}
+  .head{background:#fff !important;border-bottom:2px solid #000;}
+  .head::before{display:none;}
+  .head .eyebrow{color:#8a6d1f;}
+  .head h1,.head h1 em{color:#000;}
+  .head .sub,.breadcrumb{color:#333;}
+  .head-inner{padding:6px 0;}
+  .wrap{padding:6px 0;max-width:none;}
+  .step,.source,.intro{box-shadow:none;border:1px solid #999;break-inside:avoid;page-break-inside:avoid;}
+  .step-num{background:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .source-head,.cuts th{background:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  details.aide,details.corr{border:1px solid #999;break-inside:avoid;}
+  textarea,input.line{border:1px solid #aaa;background:#fff;min-height:auto;}
+  .article mark{background:transparent !important;box-shadow:none !important;}
+  a{color:#000;text-decoration:none;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+<style>.visit-count{margin-top:8px}.visit-count img{height:16px;vertical-align:middle}</style><style id="lsa-h1-or">h1,h1 em,h1 span{color:#f5b60f!important}</style></head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="place"><span class="dot"></span>Lycée Sidoine Apollinaire · Clermont-Ferrand</span>
+    <a class="back" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Retour à l'accueil
+    </a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="head">
+  <div class="head-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">Accueil</a><span class="sep">›</span>
+      <span class="tag">BTS</span>
+      <span class="sep">›</span><span>Méthodologie</span>
+      <span class="sep">›</span><span>Le compte rendu</span>
+    </nav>
+    <span class="eyebrow">Entraînement M3 · Anglais, épreuve de compte rendu</span>
+    <h1>2-Entraînement CR pas à pas: <em>'The Great Resignation'</em> 180 mots</h1>
+    <p class="sub">Entraînez-vous en autonomie à rédiger, en français, le compte rendu d'un article anglais. 6 étapes, des aides à déplier et une correction à comparer à la fin.</p>
+  </div>
+</header>
+
+<!-- STEP NAV -->
+<nav class="stepnav" id="stepnav">
+  <div class="stepnav-inner">
+    <span class="lbl">Parcours</span>
+    <a href="#etape1"><span class="n">1</span> Titre</a>
+    <a href="#etape2"><span class="n">2</span> Repérage</a>
+    <a href="#etape3"><span class="n">3</span> Brouillon</a>
+    <a href="#etape4"><span class="n">4</span> Alléger</a>
+    <a href="#etape5"><span class="n">5</span> Rédiger</a>
+    <a href="#etape6"><span class="n">6</span> Relecture</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <button class="btn primary" onclick="window.print()">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Imprimer la fiche
+    </button>
+    <button class="btn danger ghost" id="resetBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      Tout effacer
+    </button>
+    <span class="save-note"><span class="pulse"></span> Vos réponses sont enregistrées automatiquement dans ce navigateur.</span>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h2>Comment ça marche&nbsp;?</h2>
+    <p>Le <b>compte rendu</b> consiste à restituer fidèlement, <b>en français</b> et de façon condensée, les idées essentielles d'un texte en anglais, sans donner votre avis. Avancez étape par étape&nbsp;: chaque étape propose une <b>aide méthode</b> à déplier et des zones de réponse. Une fois votre travail rédigé, comparez-le à la <b>correction</b> proposée à chaque étape.</p>
+    <div class="consigne">
+      <b>Consigne&nbsp;:</b> Rédigez en français, en <b>environ 180 mots (± 10&nbsp;%)</b>, le compte rendu de l'article ci-dessous <i>«&nbsp;The Great Resignation Is Accelerating&nbsp;»</i>. Restituez les idées principales de façon neutre et organisée.
+    </div>
+    <div class="meta-row">
+      <span class="meta-chip"><b id="srcWords">,</b><span>mots dans<br>le texte source</span></span>
+      <span class="meta-chip"><b>180</b><span>mots visés<br>(± 10&nbsp;% → 162–198)</span></span>
+      <span class="meta-chip"><b>6</b><span>étapes<br>de méthode</span></span>
+    </div>
+  </section>
+
+  <!-- SOURCE TEXT -->
+  <section class="source">
+    <div class="source-head">
+      <span class="t">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Le texte à comprendre
+      </span>
+      <span class="src">The Atlantic, Derek Thompson · 15 October 2021</span>
+    </div>
+    <article class="article" id="article">
+      <p class="title">The Great Resignation Is Accelerating</p>
+      <p class="standfirst">A lasting effect of this <mark class="be">pandemic</mark> will be a <mark class="be">revolution</mark> in <mark class="be">worker expectation</mark>.</p>
+      <p class="byline">By <mark class="prop">Derek Thompson</mark></p>
+
+      <p>I first noticed that something weird was happening <mark class="num">this past spring</mark>. In <mark class="num">April</mark>, the number of workers who <mark class="be">quit their job</mark> in a single month broke an <mark class="be">all-time</mark> <mark class="prop">U.S.</mark> <mark class="be">record</mark>. <mark class="be">Economists</mark> called it the “<mark class="be">Great Resignation</mark>.” <mark class="conn">But</mark> <mark class="prop">America</mark>’s quitting spirit was just getting started. In <mark class="num">July and August</mark>, <mark class="be">quitters</mark> set <mark class="conn">yet another</mark> <mark class="be">record</mark>. That <mark class="be">Great Resignation</mark>? It just keeps getting greater.</p>
+
+      <p>“<mark class="be">Quits</mark>,” as the <mark class="prop">Bureau of Labor Statistics</mark> calls them, are rising in almost every <mark class="be">industry</mark>. <mark class="num">Nearly 7 %</mark> of <mark class="be">employees</mark> in the “<mark class="be">accommodations and food services</mark>” <mark class="be">sector</mark> left their job in <mark class="num">August</mark>. <mark class="conn">Thanks to</mark> several <mark class="be">pandemic-relief checks</mark>, a <mark class="be">rent moratorium</mark>, and <mark class="be">student-loan forgiveness</mark>, everybody, <mark class="conn">particularly</mark> if they are young and have a <mark class="be">low income</mark>, has more freedom to quit jobs they hate and search for something else. This level of quitting is really an expression of optimism that says, ‘We can do better’. <mark class="conn">And indeed</mark>, <mark class="be">wages</mark> for <mark class="be">low-income workers</mark> are rising at their fastest rate <mark class="conn">since</mark> the <mark class="prop">Great Recession</mark>. <mark class="be">Job openings</mark> are sky-high. Many <mark class="be">positions</mark> are going <mark class="be">unfilled</mark> for <mark class="num">months</mark>. <mark class="conn">Meanwhile</mark>, <mark class="be">supply chains</mark> are breaking down <mark class="conn">because of</mark> <mark class="be">procurement</mark> issues. Running a <mark class="be">company</mark> requires people and parts. With people quitting and parts missing, it is becoming difficult to be a <mark class="be">boss</mark> right now.</p>
+
+      <p>The Great Resignation is <mark class="conn">not the only</mark> Great R-word overhauling the <mark class="be">labor force</mark>. The basic terms of <mark class="be">employment</mark> are undergoing a <mark class="be">Great Reset</mark>. More families <mark class="num">today</mark> work at home, cook at home, care for kids at home, entertain themselves at home, and even school their kids at home. The writer <mark class="prop">Aaron M. Renn</mark> has called this the rise of the <mark class="be">DIY family</mark>, and it represents a new vision of <mark class="be">work-life balance</mark> that is still coming into focus.</p>
+
+      <p><mark class="conn">Finally</mark>, there is a <mark class="be">Great Reshuffling</mark> of people and businesses around the country. <mark class="num">For decades</mark>, many measures of <mark class="prop">U.S.</mark> <mark class="be">entrepreneurship</mark> declined. <mark class="conn">But</mark> <mark class="be">business formation</mark> has surged <mark class="conn">since</mark> the beginning of the <mark class="be">pandemic</mark>, and the largest category <mark class="conn">by far</mark> is <mark class="be">e-commerce</mark>. This has coincided with an increase in moves, <mark class="conn">especially</mark> to the <mark class="be">suburbs</mark> of large <mark class="be">metropolitan areas</mark>. Several major <mark class="be">companies</mark>, <mark class="conn">such as</mark> <mark class="prop">Twitter</mark>, have announced <mark class="be">permanent work-from-home policies</mark>, <mark class="conn">while others</mark>, <mark class="conn">such as</mark> <mark class="prop">Tesla</mark>, have moved their <mark class="be">headquarters</mark>. It may lead to a <mark class="be">better-job revolution</mark> that outlasts the temporary measures, <mark class="conn">such as</mark> <mark class="be">unemployment super benefits</mark> and <mark class="be">rent protection</mark>, that have nourished it.</p>
+
+      <p>We may <mark class="conn">instead</mark> look back to the pandemic as a crucial <mark class="be">inflection point</mark> in something more fundamental: <mark class="prop">Americans</mark>’ <mark class="be">attitudes toward work</mark>. Migration to the suburbs accelerated. More people are quitting their job to start something new. <mark class="conn">Even</mark> our <mark class="be">office relationships</mark> are being dispersed. The Great Resignation is speeding up, and it’s created a new momentum in <mark class="prop">American</mark> economic history.</p>
+
+      <p class="byline">Abridged and adapted from <mark class="prop">The Atlantic</mark>, <mark class="num">October 15, 2021</mark></p>
+    </article>
+  </section>
+
+  <!-- ══════ ÉTAPE 1 ══════ -->
+  <section class="step" id="etape1">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div class="ht">
+        <h2>Anticiper à partir du titre</h2>
+        <p class="obj">Avant même de lire l'article, le titre vous renseigne déjà beaucoup.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Repérez dans le titre les <b>mots transparents</b> (proches du français) et les <b>mots connus</b>, puis devinez le thème et le <i>Business English</i> probable.</p>
+          <ul>
+            <li><b>Mots transparents&nbsp;:</b> repérez les mots proches du français ou déjà connus.</li>
+            <li><b>Le thème&nbsp;:</b> de quoi va parler l'article&nbsp;?</li>
+            <li><b>Business English attendu&nbsp;:</b> quel vocabulaire professionnel pensez-vous rencontrer&nbsp;?</li>
+          </ul>
+        </div>
+      </details>
+      <div class="field">
+        <label>a) Quels mots importants du titre comprenez-vous&nbsp;? <span class="hint">(mots transparents ou déjà connus)</span></label>
+        <textarea class="sm" data-save="e1a" placeholder=""></textarea>
+      </div>
+      <div class="field">
+        <label>b) Quel est le thème probable de l'article&nbsp;?</label>
+        <textarea class="sm" data-save="e1b" placeholder="En une phrase…"></textarea>
+      </div>
+      <div class="field">
+        <label>c) Quel Business English vous attendez-vous à trouver&nbsp;?</label>
+        <textarea class="sm" data-save="e1c" placeholder="Listez quelques mots du domaine que vous pensez rencontrer…"></textarea>
+      </div>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir une proposition de correction</summary>
+        <div class="ci">
+          <ul>
+            <li><b>Mots compris&nbsp;:</b> <i>great</i> (grand), <i>resignation</i> (démission), <i>accelerating</i> (s'accélère, s'amplifie).</li>
+            <li><b>Thème probable&nbsp;:</b> une vague de démissions, probablement aux États-Unis, qui s'amplifie.</li>
+            <li><b>Business English attendu&nbsp;:</b> vocabulaire du marché du travail (<i>quit, resign, employees, workers, jobs, wages, labor, unemployment, hiring…</i>).</li>
+          </ul>
+          <p class="corr-note">Le mot <i>resignation</i> est un faux ami partiel&nbsp;: ici il signifie <b>démission</b>, pas «&nbsp;résignation&nbsp;». Il n'y a pas une seule bonne réponse&nbsp;: l'important est d'avoir anticipé le bon thème.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 2 ══════ -->
+  <section class="step" id="etape2">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div class="ht">
+        <h2>Lecture globale, puis repérage</h2>
+        <p class="obj">Lire une première fois sans bloquer sur les mots inconnus, puis appliquer le code de repérage.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="legend" id="legend">
+        <span class="lgl">Code de repérage, cliquez pour surligner dans le texte ci-dessus</span>
+        <button class="hl-btn" data-k="be" aria-pressed="false"><span class="sw"></span>Business English</button>
+        <button class="hl-btn" data-k="num" aria-pressed="false"><span class="sw"></span>Chiffres &amp; dates</button>
+        <button class="hl-btn" data-k="prop" aria-pressed="false"><span class="sw"></span>Noms propres</button>
+        <button class="hl-btn" data-k="conn" aria-pressed="false"><span class="sw"></span>Connecteurs logiques</button>
+      </div>
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Première lecture&nbsp;: ne vous arrêtez pas sur chaque mot inconnu. Cherchez seulement le <b>sujet</b>, les <b>acteurs</b> et l'<b>idée générale</b>. Relisez ensuite en appliquant le <b>code de repérage</b> (boutons de couleur ci-dessus)&nbsp;:</p>
+          <ul>
+            <li><b>BE</b>, le <i>Business English</i>&nbsp;;</li>
+            <li><b>Chiffres</b>, dates, données chiffrées, pourcentages&nbsp;;</li>
+            <li><b>Noms propres</b>, personnes, entreprises, lieux, institutions&nbsp;;</li>
+            <li><b>Connecteurs logiques</b>, <i>rather than, also, up from, even, including…</i> qui signalent l'organisation des idées.</li>
+          </ul>
+          <p>Astuce&nbsp;: activez les surlignages ci-dessus pour vérifier vos repérages.</p>
+        </div>
+      </details>
+      <div class="field">
+        <label>a) Type de document, source et date</label>
+        <textarea class="sm" data-save="e2a" placeholder="Nature du document, d'où il vient, quand il a été publié…"></textarea>
+      </div>
+      <div class="field">
+        <label>b) Sujet général du document <span class="hint">(en une ou deux phrases)</span></label>
+        <textarea class="sm" data-save="e2b" placeholder="De quoi parle l'article dans son ensemble&nbsp;?"></textarea>
+      </div>
+      <div class="field">
+        <label>c) Acteurs principaux <span class="hint">(qui parle, qui est cité&nbsp;?)</span></label>
+        <textarea class="sm" data-save="e2c" placeholder="Personnes, institutions, organismes cités…"></textarea>
+      </div>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir une proposition de correction</summary>
+        <div class="ci">
+          <ul>
+            <li><b>Type / source&nbsp;:</b> article de presse du magazine américain <i>The Atlantic</i>, signé Derek Thompson, daté du 15 octobre 2021 (texte abrégé et adapté).</li>
+            <li><b>Sujet général&nbsp;:</b> la vague record de démissions aux États-Unis après la pandémie, qui traduit un changement profond des attentes des salariés vis-à-vis du travail.</li>
+            <li><b>Acteurs&nbsp;:</b> Derek Thompson (l'auteur), les salariés américains (surtout jeunes et à bas revenus), le <i>Bureau of Labor Statistics</i> (source des chiffres), les entreprises et employeurs, l'écrivain Aaron M. Renn, et deux entreprises citées en exemple&nbsp;: Twitter et Tesla.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 3 ══════ -->
+  <section class="step" id="etape3">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div class="ht">
+        <h2>Préparer le brouillon, paragraphe par paragraphe</h2>
+        <p class="obj">Reformuler en français les idées clés, sous forme de notes, sans traduire mot à mot.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Ici, l'article compte <b>5 paragraphes</b>&nbsp;: repérez dans chacun l'<b>idée essentielle</b> et notez-la <b>en français</b>, sous forme de phrase courte ou de note, pas de traduction. Gardez les <b>chiffres utiles</b>. Vous compterez vos mots à la fin de chaque idée.</p>
+          <p><b>Attention&nbsp;:</b> l'auteur parle à la première personne («&nbsp;<i>I first noticed…</i>&nbsp;»). Ne reprenez pas ce «&nbsp;je&nbsp;»&nbsp;: rédigez de façon <b>impersonnelle</b>. Pensez aussi à traduire les «&nbsp;Great R-words&nbsp;»&nbsp;: <i>Great Resignation</i> (Grande Démission), <i>Great Reset</i> (Grande Réinitialisation), <i>Great Reshuffling</i> (Grand Remaniement).</p>
+          <p>Pensez à une <b>introduction type</b>&nbsp;: <i>«&nbsp;L'article paru en 2021 dans The Atlantic traite de…&nbsp;»</i></p>
+        </div>
+      </details>
+
+      <div class="field">
+        <label>Introduction (phrase d'amorce)</label>
+        <textarea class="sm" data-save="e3intro" placeholder=""></textarea>
+        <div class="para-wc"><b data-wc="e3intro">0</b> mot(s)</div>
+      </div>
+
+      <div class="para"><div class="pl">Idée 1</div><textarea class="sm" data-save="e3p1" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p1">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 2</div><textarea class="sm" data-save="e3p2" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p2">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 3</div><textarea class="sm" data-save="e3p3" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p3">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 4</div><textarea class="sm" data-save="e3p4" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p4">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 5</div><textarea class="sm" data-save="e3p5" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p5">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 6</div><textarea class="sm" data-save="e3p6" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p6">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 7</div><textarea class="sm" data-save="e3p7" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p7">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 8</div><textarea class="sm" data-save="e3p8" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p8">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 9</div><textarea class="sm" data-save="e3p9" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p9">0</b> mot(s)</div></div>
+      <div class="para"><div class="pl">Idée 10</div><textarea class="sm" data-save="e3p10" placeholder="…"></textarea><div class="para-wc"><b data-wc="e3p10">0</b> mot(s)</div></div>
+
+      <div class="counter" id="cnt3"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> Brouillon provisoire&nbsp;: <b>0</b> mots</div>
+
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir les idées clés à retenir</summary>
+        <div class="ci">
+          <ul>
+            <li>Introduction&nbsp;: l'article de Derek Thompson, publié en 2021 dans <i>The Atlantic</i>, traite de la vague sans précédent de démissions aux États-Unis.</li>
+            <li>Ampleur&nbsp;: depuis avril, le nombre de démissions mensuelles bat un record historique, puis un nouveau record en juillet et août. Le phénomène s'amplifie.</li>
+            <li>Secteurs touchés&nbsp;: presque tous, par exemple l'hôtellerie-restauration, où près de 7&nbsp;% des salariés sont partis en août.</li>
+            <li>Causes&nbsp;: les aides de l'État (chèques de relance, moratoire sur les loyers, annulation de dettes étudiantes) donnent plus de liberté de quitter un emploi détesté, surtout aux jeunes à bas revenus.</li>
+            <li>Conséquences positives&nbsp;: les démissions traduisent un certain optimisme. Les bas salaires augmentent à leur rythme le plus rapide depuis la Grande Récession, et les offres d'emploi sont très nombreuses.</li>
+            <li>Difficultés des entreprises&nbsp;: postes vacants pendant des mois, pénurie de main-d'œuvre, chaînes d'approvisionnement perturbées. Il devient difficile de diriger une entreprise.</li>
+            <li>Grande Réinitialisation&nbsp;: les familles vivent et travaillent davantage à la maison, d'où une nouvelle vision de l'équilibre vie professionnelle / vie privée («&nbsp;DIY family&nbsp;»).</li>
+            <li>Grand Remaniement&nbsp;: hausse des créations d'entreprises (surtout le commerce en ligne), départs vers les banlieues, télétravail permanent chez Twitter, déménagement du siège de Tesla.</li>
+            <li>Conclusion&nbsp;: la pandémie est peut-être un tournant fondamental dans l'attitude des Américains face au travail, avec une nouvelle dynamique dans l'histoire économique du pays.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 4 ══════ -->
+  <section class="step" id="etape4">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div class="ht">
+        <h2>Organiser et alléger le brouillon</h2>
+        <p class="obj">Obtenir un compte rendu cohérent et respecter le nombre de mots demandé.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Relisez votre brouillon et <b>éliminez</b>&nbsp;: les répétitions, les exemples accessoires, les détails secondaires. <b>Gardez</b> les arguments forts et les chiffres utiles. Pensez à ajouter des <b>connecteurs logiques</b> (<i>de plus, cependant, en revanche, par conséquent, par ailleurs…</i>) pour relier les idées.</p>
+        </div>
+      </details>
+      <table class="cuts">
+        <thead><tr><th>Idée(s) éliminée(s)</th><th>Pourquoi&nbsp;?</th><th>Mots gagnés</th></tr></thead>
+        <tbody>
+          <tr><td><textarea data-save="e4i1" placeholder="Ex. : l'anecdote personnelle de l'auteur…"></textarea></td><td><textarea data-save="e4w1" placeholder="détail secondaire, l'idée générale suffit"></textarea></td><td><input class="line" data-save="e4n1" inputmode="numeric" placeholder=","></td></tr>
+          <tr><td><textarea data-save="e4i2"></textarea></td><td><textarea data-save="e4w2"></textarea></td><td><input class="line" data-save="e4n2" inputmode="numeric" placeholder=","></td></tr>
+          <tr><td><textarea data-save="e4i3"></textarea></td><td><textarea data-save="e4w3"></textarea></td><td><input class="line" data-save="e4n3" inputmode="numeric" placeholder=","></td></tr>
+          <tr><td><textarea data-save="e4i4"></textarea></td><td><textarea data-save="e4w4"></textarea></td><td><input class="line" data-save="e4n4" inputmode="numeric" placeholder=","></td></tr>
+        </tbody>
+      </table>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir des pistes</summary>
+        <div class="ci">
+          <ul>
+            <li><b>À supprimer&nbsp;:</b> l'anecdote personnelle de l'auteur («&nbsp;j'ai remarqué au printemps&nbsp;»)&nbsp;; le détail des aides (chèques, moratoire sur les loyers, dettes étudiantes), à résumer par «&nbsp;les aides de l'État&nbsp;»&nbsp;; Aaron M. Renn et l'expression «&nbsp;DIY family&nbsp;»&nbsp;; Tesla et le déménagement de son siège&nbsp;; les chaînes d'approvisionnement.</li>
+            <li><b>À regrouper&nbsp;:</b> les 9 idées peuvent tenir en <b>4 paragraphes</b>&nbsp;: (1) ampleur du phénomène et secteurs touchés&nbsp;; (2) causes et conséquences (aides, salaires, pénurie de main-d'œuvre)&nbsp;; (3) «&nbsp;réinitialisation&nbsp;» et «&nbsp;remaniement&nbsp;»&nbsp;: télétravail, cadre de vie, création d'entreprises&nbsp;; (4) conclusion.</li>
+            <li><b>À garder&nbsp;:</b> le record de démissions&nbsp;; le chiffre de 7&nbsp;% dans l'hôtellerie-restauration&nbsp;; le lien entre aides de l'État et liberté de partir&nbsp;; la hausse des bas salaires&nbsp;; Twitter comme exemple de télétravail durable.</li>
+            <li><b>Connecteurs utiles&nbsp;:</b> <i>en effet, effectivement, par ailleurs, de plus, également, ainsi.</i></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 5 ══════ -->
+  <section class="step" id="etape5">
+    <div class="step-head">
+      <div class="step-num">5</div>
+      <div class="ht">
+        <h2>Rédiger le compte rendu</h2>
+        <p class="obj">Un texte cohérent, structuré, neutre, dans un français de qualité, et au bon nombre de mots.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Rédigez à partir de votre brouillon organisé. <b>Aérez</b> le compte rendu&nbsp;: alinéas, paragraphes, sauts de ligne. Restez <b>neutre</b> (pas de «&nbsp;je pense que&nbsp;»). Indiquez le <b>nombre de mots</b> à la fin.</p>
+        </div>
+      </details>
+      <div class="field">
+        <label>Introduction</label>
+        <textarea class="md" data-save="e5intro" placeholder=""></textarea>
+      </div>
+      <div class="field">
+        <label>Développement du compte rendu</label>
+        <textarea class="lg" data-save="e5body" placeholder="Rédigez ici votre compte rendu, en paragraphes aérés…"></textarea>
+      </div>
+      <div class="counter" id="cnt5"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> Compte rendu&nbsp;: <b>0</b> mots <span id="cnt5msg" style="margin-left:4px;"></span></div>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 6 ══════ -->
+  <section class="step" id="etape6">
+    <div class="step-head">
+      <div class="step-num">6</div>
+      <div class="ht">
+        <h2>Relecture du compte rendu, 10 vérifications</h2>
+        <p class="obj">Cochez chaque point une fois vérifié dans votre compte rendu, puis comparez à l'exemple.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <ul class="check" id="checklist" style="margin-top:6px;">
+        <li><input type="checkbox" id="c1" data-save="c1"><label for="c1">J'ai indiqué le nombre exact de mots à la fin.</label></li>
+        <li><input type="checkbox" id="c2" data-save="c2"><label for="c2">J'ai respecté la longueur demandée.</label></li>
+        <li><input type="checkbox" id="c3" data-save="c3"><label for="c3">J'ai rédigé une introduction type recevable.</label></li>
+        <li><input type="checkbox" id="c4" data-save="c4"><label for="c4">J'ai sélectionné les idées essentielles, sans tout raconter.</label></li>
+        <li><input type="checkbox" id="c5" data-save="c5"><label for="c5">J'ai supprimé les exemples inutiles ou redondants.</label></li>
+        <li><input type="checkbox" id="c6" data-save="c6"><label for="c6">J'ai utilisé des connecteurs logiques sans en abuser.</label></li>
+        <li><input type="checkbox" id="c7" data-save="c7"><label for="c7">J'ai aéré mon compte rendu&nbsp;: alinéas, paragraphes, sauts de ligne.</label></li>
+        <li><input type="checkbox" id="c8" data-save="c8"><label for="c8">J'ai adopté un registre de langue adapté&nbsp;: clair, neutre et professionnel.</label></li>
+        <li><input type="checkbox" id="c9" data-save="c9"><label for="c9">Je me suis relu(e) en fonction de mes faiblesses en français.</label></li>
+        <li><input type="checkbox" id="c10" data-save="c10"><label for="c10">Je n'ai pas donné mon avis personnel.</label></li>
+      </ul>
+      <p class="check-foot"><b id="checkcount">0</b>&nbsp;/&nbsp;10 vérifications effectuées.</p>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir un exemple de compte rendu rédigé</summary>
+        <div class="ci">
+          <p>L’article publié en 2021 dans The Atlantic traite de la vague sans précédent de démissions qui s’est emparée des salariés américains.</p>
+          <p>Depuis avril, les Américains démissionnent en masse. Cette Grande Démission a atteint un record historique en été et s’étend à de nombreux domaines comme l’hôtellerie restauration où près de 7% des travailleurs ont quitté leur emploi en août.</p>
+          <p>En effet, grâce aux différentes aides de l’état, les salariés se sentent plus libres de quitter des emplois mal payés pour espérer trouver mieux. Et effectivement, devant la pénurie de main d’œuvre dans certains secteurs ce qui entrave la bonne marche des entreprises, les bas salaires augmentent comme jamais.</p>
+          <p>Par ailleurs, les travailleurs souhaitent une grande réinitialisation en donnant un nouvel équilibre vie privée, vie professionnelle grâce au télétravail, ils abandonnent aussi les centres villes au profit d’un meilleur cadre de vie. De plus en plus se lancent dans l’entreprenariat, et particulièrement dans le commerce en ligne. Le grand remaniement existe également pour les grandes entreprises comme Twitter qui propose de perpétuer le télétravail.</p>
+          <p>Ainsi, la pandémie a totalement changé le monde du travail et les attentes des salariés. Elle ouvre une nouvelle ère dans l’histoire de l’économie américaine. <i>(≈ 198 mots)</i></p>
+          <p class="corr-note">Ce n'est qu'un exemple parmi d'autres&nbsp;: votre formulation peut différer tant que les idées essentielles y sont, dans un français neutre et clair.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+  <div class="ia-box" data-ia="compte-rendu" data-ia-titre="Retour de l'IA sur mon compte rendu" data-ia-texte="Introduction=textarea[data-save=e5intro]|Développement=textarea[data-save=e5body]" data-ia-ctx="Article source=#article" data-ia-min="40"></div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button class="btn primary" onclick="window.print()">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Imprimer ma fiche
+    </button>
+    <a class="btn" href="index.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+      Revenir à l'accueil
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="assets/lsa-logo.png" alt="Logo LSA">
+      <div>
+        <strong>LSA Toolbox</strong>
+        <span>Outils pédagogiques · Mme Huet</span>
+      </div>
+    </div>
+    <nav class="foot-links">
+      <a href="index.html">Accueil</a>
+    </nav>
+  </div>
+<div class="visit-count" id="visitCount"></div></footer>
+
+<script>
+(function(){
+  const STORE = 'lsa-cr-great-resignation-v1';
+  let state = {};
+  try{ state = JSON.parse(localStorage.getItem(STORE) || '{}'); }catch(e){ state = {}; }
+
+  const fields = Array.from(document.querySelectorAll('[data-save]'));
+  fields.forEach(el=>{
+    const k = el.dataset.save;
+    if(state[k] !== undefined){
+      if(el.type === 'checkbox') el.checked = !!state[k];
+      else el.value = state[k];
+    }
+  });
+
+  let saveTimer = null;
+  function persist(){
+    const o = {};
+    fields.forEach(el=>{ o[el.dataset.save] = (el.type==='checkbox') ? el.checked : el.value; });
+    localStorage.setItem(STORE, JSON.stringify(o));
+  }
+  function scheduleSave(){ clearTimeout(saveTimer); saveTimer = setTimeout(persist, 250); }
+
+  fields.forEach(el=>{
+    el.addEventListener('input', ()=>{ scheduleSave(); updateAll(); });
+    el.addEventListener('change', ()=>{ scheduleSave(); updateAll(); });
+  });
+
+  function countWords(str){
+    const t = (str||'').trim();
+    if(!t) return 0;
+    return t.split(/\s+/).filter(Boolean).length;
+  }
+
+  // source word count
+  const artText = document.getElementById('article').innerText;
+  document.getElementById('srcWords').textContent = '≈ ' + Math.round(countWords(artText)/10)*10;
+
+  const cnt3b = document.querySelector('#cnt3 b');
+  const cnt5b = document.querySelector('#cnt5 b');
+  const cnt5msg = document.getElementById('cnt5msg');
+  const cnt5box = document.getElementById('cnt5');
+  const checkcount = document.getElementById('checkcount');
+
+  function updateAll(){
+    // step 3 per-idea + global
+    const e3keys = ['e3intro','e3p1','e3p2','e3p3','e3p4','e3p5','e3p6','e3p7','e3p8','e3p9','e3p10'];
+    let w3 = 0;
+    e3keys.forEach(k=>{
+      const el = document.querySelector('[data-save="'+k+'"]');
+      const wc = document.querySelector('[data-wc="'+k+'"]');
+      if(el){ const n=countWords(el.value); w3+=n; if(wc) wc.textContent=n; }
+    });
+    cnt3b.textContent = w3;
+
+    // step 5
+    const w5 = countWords((document.querySelector('[data-save="e5intro"]')||{}).value)
+              + countWords((document.querySelector('[data-save="e5body"]')||{}).value);
+    cnt5b.textContent = w5;
+    cnt5box.classList.remove('ok','over');
+    cnt5msg.textContent = '';
+    if(w5 === 0){}
+    else if(w5 < 162){ cnt5msg.textContent = '· encore ' + (162 - w5) + ' mot' + ((162-w5)>1?'s':'') + ' (cible 162–198)'; }
+    else if(w5 <= 198){ cnt5box.classList.add('ok'); cnt5msg.textContent = '· bonne longueur ✓'; }
+    else { cnt5box.classList.add('over'); cnt5msg.textContent = '· ' + (w5 - 198) + ' mot' + ((w5-198)>1?'s':'') + ' de trop'; }
+
+    // checklist
+    const checks = Array.from(document.querySelectorAll('#checklist input'));
+    checkcount.textContent = checks.filter(c=>c.checked).length;
+
+    markNavDone();
+  }
+
+  function stepFilled(ids){ return ids.some(k=>{ const el=document.querySelector('[data-save="'+k+'"]'); return el && countWords(el.value)>0; }); }
+  function markNavDone(){
+    const map = {
+      etape1:['e1a','e1b','e1c'],
+      etape2:['e2a','e2b','e2c'],
+      etape3:['e3intro','e3p1','e3p2','e3p3','e3p4','e3p5','e3p6','e3p7','e3p8','e3p9','e3p10'],
+      etape4:['e4i1','e4i2','e4i3','e4i4'],
+      etape5:['e5intro','e5body']
+    };
+    document.querySelectorAll('.stepnav a').forEach(a=>{
+      const id = a.getAttribute('href').slice(1);
+      if(id==='etape6'){
+        const anyChecked = Array.from(document.querySelectorAll('#checklist input')).some(c=>c.checked);
+        a.classList.toggle('done', anyChecked);
+      } else if(map[id]) a.classList.toggle('done', stepFilled(map[id]));
+    });
+  }
+
+  // code de repérage
+  const article = document.getElementById('article');
+  document.querySelectorAll('.hl-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const k = btn.dataset.k;
+      const on = btn.getAttribute('aria-pressed') !== 'true';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      article.classList.toggle('show-'+k, on);
+    });
+  });
+
+  // reset
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(!confirm('Effacer toutes vos réponses sur cette fiche ? Cette action est définitive.')) return;
+    localStorage.removeItem(STORE);
+    fields.forEach(el=>{ if(el.type==='checkbox') el.checked=false; else el.value=''; });
+    updateAll();
+  });
+
+  updateAll();
+})();
+</script>
+<script>(function(){var k=(location.pathname.split("/").pop()||"index").replace(".html","");var e=document.getElementById("visitCount");if(e){e.innerHTML='<img src="https://api.visitorbadge.io/api/visitors?path=lsa-mco-'+encodeURIComponent(k)+'&label=Visites&countColor=%23c8a84b&labelColor=%230f1a33&style=flat-square" alt="compteur de visites">'}})();</script><script src="assets/ia.js"></script>
+</body>
+</html>
