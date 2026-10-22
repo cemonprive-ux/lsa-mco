@@ -164,8 +164,8 @@ const CR=[
 const VO=[
 {k:'voc',t:'M5-Connecteurs logiques',d:'61 connecteurs logiques, cours PDF, flashcards, QCM en contexte et phrases à compléter.',h:'connecteurs-logiques-vocabulaire-mco.html'}];
 const GK=[
-{g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-mco.html'},
-{g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-mco.html'}];
+{g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-mco.html#gb-uk'},
+{g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-mco.html#fifty-states'}];
 const ALL=[...PH.map(x=>({...x,ct:'Phonologie'})),...CR.map(x=>({...x,ct:'Compte rendu'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'}))];
 const TABS=[['home','Accueil','home'],['phonologie','Phonologie','pod'],['cr','Compte rendu','ess'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe']];
 const route=()=>(location.hash.slice(1)||'home').split('/');

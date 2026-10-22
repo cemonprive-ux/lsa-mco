@@ -165,7 +165,13 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
   .card-thumb::after{background:linear-gradient(0deg,rgba(26,39,68,.25),transparent 60%);}
 }
 </style>
-<style>.visit-count{margin-top:8px}.visit-count img{height:16px;vertical-align:middle}</style></head>
+<style>.visit-count{margin-top:8px}.visit-count img{height:16px;vertical-align:middle}.gk-all{display:none;margin:0 0 22px;font-weight:700;font-size:15px;color:var(--navy);text-decoration:none}
+.gk-all:hover{color:var(--blue)}
+body.gk-focus .gk-all{display:inline-block}
+body.gk-focus .fmt-group:not(.gk-on){display:none}
+body.gk-focus .fmt-group.gk-on>summary{display:none}
+body.gk-focus .fmt-group.gk-on .res:not(.gk-on){display:none}
+</style></head>
 <body>
 
 <!-- TOP BAR -->
@@ -196,7 +202,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
 <!-- RESOURCES -->
 <main class="wrap">
 
-  <details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Vidéos</h2><span class="fmt-count">1</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res">
+  <details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Vidéos</h2><span class="fmt-count">1</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res" id="gb-uk">
     <div class="res-head">
       <span class="idx">1</span>
       <div>
@@ -211,7 +217,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
   </section>
 
 </div></details>
-<details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Podcasts</h2><span class="fmt-count">1</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res">
+<details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Podcasts</h2><span class="fmt-count">1</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res" id="fifty-states">
     <div class="res-head">
       <span class="idx">2</span>
       <div>
@@ -247,5 +253,25 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
   </div>
 <div class="visit-count" id="visitCount"></div></footer>
 
+<script>
+/* Accès direct à une ressource : general-knowledge-mco.html#gb-uk n'affiche que cette ressource */
+(function(){
+var main=document.querySelector("main.wrap");
+if(main&&!document.querySelector(".gk-all")){var a=document.createElement("a");a.className="gk-all";a.href="general-knowledge-mco.html";a.textContent="\u2190 Toutes les ressources General Knowledge";main.insertBefore(a,main.firstChild);}
+function apply(){
+var on=document.querySelectorAll(".gk-on");for(var i=0;i<on.length;i++)on[i].classList.remove("gk-on");
+document.body.classList.remove("gk-focus");
+var id="";try{id=decodeURIComponent(location.hash.slice(1));}catch(e){}
+var t=id?document.getElementById(id):null;
+if(!t||!t.classList.contains("res"))return;
+var g=t.closest("details");
+if(g){g.open=true;g.classList.add("gk-on");}
+t.classList.add("gk-on");
+document.body.classList.add("gk-focus");
+window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",apply);apply();
+})();
+</script>
 <script>(function(){var k=(location.pathname.split("/").pop()||"index").replace(".html","");var e=document.getElementById("visitCount");if(e){e.innerHTML='<img src="https://api.visitorbadge.io/api/visitors?path=lsa-mco-'+encodeURIComponent(k)+'&label=Visites&countColor=%23c8a84b&labelColor=%230f1a33&style=flat-square" alt="compteur de visites">'}})();</script></body>
 </html>
