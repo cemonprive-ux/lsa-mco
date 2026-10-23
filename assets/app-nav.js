@@ -91,6 +91,8 @@ showUpdate(v,j.note||"");
 }).catch(function(){});
 }
 function init(){
+var framed=false;try{framed=window.self!==window.top}catch(e){framed=true}
+if(framed)return; /* un seul écran, une seule barre : celle de la page parente */
 checkUpdate();
 document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible")checkUpdate()});
 if(isIndex){indexState();return}
