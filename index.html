@@ -174,9 +174,11 @@ const CR=[
 {k:'cr',t:"2-Entraînement CR pas à pas: 'The Great Resignation' 180 mots",d:"Entraînement guidé en 6 étapes, The Atlantic, octobre 2021.",h:'great-resignation-compte-rendu.html'}];
 const VO=[
 {k:'voc',t:'M5-Connecteurs logiques',d:'61 connecteurs logiques, cours PDF, flashcards, QCM en contexte et phrases à compléter.',h:'connecteurs-logiques-vocabulaire-mco.html'}];
-const TS=[
-/* Tests : ajouter ici les tests, au format {k:'tests',t:'Titre',d:'Description',h:'fichier.html'} */
+const TE=[
+/* Tests : ajouter ici les tests, au format {k:'tests',t:'Titre',d:'Description',h:'adresse',from:'date ISO avec décalage'} ; « from » = date et heure d'apparition (facultatif) */
+{k:'tests',t:'Test de Business English 1 – Chapitre 1',d:'MCO 2 · mardi 3 novembre 2026, 14 h 00 à 14 h 45 · 45 minutes · 30 traductions.',h:'https://mco-business-english-2.cemonprive.workers.dev',from:'2026-11-03T13:45:00+01:00'}
 ];
+const TS=TE.filter(x=>!x.from||Date.now()>=Date.parse(x.from));
 const GK=[
 {g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-mco.html#gb-uk'},
 {g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-mco.html#fifty-states'}];
