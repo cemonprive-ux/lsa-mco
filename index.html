@@ -30,7 +30,7 @@ svg{flex-shrink:0}
 .top .ib{width:44px;height:44px;border-radius:10px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center}
 .top .ib:active{background:rgba(255,255,255,.12)}
 main{padding:12px 16px calc(var(--tab) + 28px + env(safe-area-inset-bottom));max-width:1180px;width:100%;margin:0 auto}
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy-deep);border-top:3px solid var(--accent);display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding-bottom:env(safe-area-inset-bottom)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy-deep);border-top:3px solid var(--accent);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding-bottom:env(safe-area-inset-bottom)}
 .tabs a{height:var(--tab);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:rgba(255,255,255,.7);font-size:11px;font-weight:600}
 .tabs a.on{color:var(--accent)}.tabs .tbot{width:24px;height:24px;object-fit:contain;opacity:.72}.tabs a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
 /* ── common ── */
@@ -172,6 +172,8 @@ const PH=[
 const CR=[
 {k:'cr',t:"1-Entraînement CR pas à pas: 'The effects of an internship' 180 mots",d:"Entraînement guidé en 6 étapes, work.chron.com, novembre 2020.",h:'internship-compte-rendu.html'},
 {k:'cr',t:"2-Entraînement CR pas à pas: 'The Great Resignation' 180 mots",d:"Entraînement guidé en 6 étapes, The Atlantic, octobre 2021.",h:'great-resignation-compte-rendu.html'}];
+/* Vidéo (M4) : ajouter ici les vidéos au format {k:'vid',t:'Titre',d:'Description',h:'adresse'} */
+const VI=[];
 const VO=[
 {k:'voc',t:'M5-Connecteurs logiques',d:'61 connecteurs logiques, cours PDF, flashcards, QCM en contexte et phrases à compléter.',h:'connecteurs-logiques-vocabulaire-mco.html'}];
 const TE=[
@@ -186,8 +188,8 @@ const TS=TE.filter(x=>!x.from||Date.now()>=Date.parse(x.from));
 const GK=[
 {g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-mco.html#gb-uk'},
 {g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-mco.html#fifty-states'}];
-const ALL=[...PH.map(x=>({...x,ct:'Phonologie'})),...CR.map(x=>({...x,ct:'Compte rendu'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...TS.map(x=>({...x,ct:'Tests'})),...GK.map(x=>({...x,ct:'General Knowledge'}))];
-const TABS=[['home','Accueil','home'],['phonologie','Phonologie','pod'],['cr','Compte rendu','ess'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe'],['tests','Tests','test']];
+const ALL=[...PH.map(x=>({...x,ct:'Phonologie'})),...CR.map(x=>({...x,ct:'Compte rendu'})),...VI.map(x=>({...x,ct:'Vidéo'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...TS.map(x=>({...x,ct:'Tests'})),...GK.map(x=>({...x,ct:'General Knowledge'}))];
+const TABS=[['home','Accueil','home'],['phonologie','Phonologie','pod'],['cr','Compte rendu','ess'],['vocabulaire','Vocabulaire','voc'],['video','Vidéo','vid'],['tests','Tests','test']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-t]');if(a)try{localStorage.setItem('mco-last',JSON.stringify({t:a.dataset.t,h:a.getAttribute('href')}))}catch(_){}});
 const cls={cr:'ess',ph:'sum',voc:'voc',vid:'vid',pod:'vid',tests:'sum'},ico={cr:'ess',ph:'pod',voc:'voc',vid:'vid',pod:'pod',tests:'test'};
@@ -197,19 +199,20 @@ const foot=`<footer class="foot"><img class="l" src="assets/lsa-logo.png" alt="L
 const V={
 home(){let l=null;try{l=JSON.parse(localStorage.getItem('mco-last'))}catch(_){}
 return `<section class="hello"><h1>BTS MCO <span>Toolbox</span></h1>${l?`<a class="resume" href="${l.h}"><span class="g"><small>Reprendre</small><b>${l.t}</b></span>${ic('play',20,2.4)}</a>`:''}</section>
-${block('phonologie','M2-Phonologie','3 fiches',PH)}${block('cr','M3-Le CR pas à pas','2 fiches',CR)}${block('vocabulaire','M5-Vocabulaire','1 fiche',VO)}
+${block('phonologie','M2-Phonologie','3 fiches',PH)}${block('cr','M3-Le CR pas à pas','2 fiches',CR)}${VI.length?block('video','M4 - La vidéo type CCF',VI.length+(VI.length>1?' fiches':' fiche'),VI):`<div class="sec"><h2>M4 - La vidéo type CCF</h2><a href="#video">Ouvrir</a></div>`}${block('vocabulaire','M5-Vocabulaire','1 fiche',VO)}
 <div class="sec"><h2>Aussi</h2></div><div class="tiles">
 <a class="tile" href="#culture"><span class="ic">${ic('globe')}</span><b>General Knowledge</b></a>
 <a class="tile" href="https://1cours1bot.fr" target="_blank" rel="noopener"><span class="ic bot"><img src="assets/1cours1bot-logo.png" alt=""></span><b>1cours1bot</b></a></div>`},
 phonologie(){return `<h1>M2-Phonologie</h1><p class="lead">Le code couleur des sons voyelles et l'entraînement à la prononciation avec retour de l'IA.</p><div class="res" style="margin-top:16px">${PH.map(row).join('')}</div>`},
 cr(){return `<h1>M3-Le CR pas à pas</h1><p class="lead">Entraînements guidés pour rédiger en français le compte rendu d'un article de presse anglais.</p><div class="res" style="margin-top:16px">${CR.map(row).join('')}</div>`},
+video(){return `<h1>M4 - La vidéo type CCF</h1><p class="lead">Entraînements guidés pour réussir l'épreuve de CO du CCF.</p>${VI.length?`<div class="res" style="margin-top:16px">${VI.map(row).join('')}</div>`:'<p class="empty" style="margin-top:16px">Les entraînements seront bientôt disponibles.</p>'}`},
 vocabulaire(){return `<h1>M5-Vocabulaire</h1><p class="lead">Cours PDF, flashcards, QCM en contexte et phrases à compléter.</p><div class="res" style="margin-top:16px">${VO.map(row).join('')}</div>`},
 culture(){const gs=[...new Set(GK.map(x=>x.g))];return `<h1>General Knowledge</h1>${gs.map(g=>`<div class="sec"><h2>${g}</h2></div><div class="res gridres">${GK.filter(x=>x.g===g).map(row).join('')}</div>`).join('')}`},
 tests(){return `<h1>Tests</h1><p class="lead">Tests d'entraînement et d'évaluation.</p>${TS.length?`<div class="res" style="margin-top:16px">${TS.map(row).join('')}</div>`:'<p class="empty" style="margin-top:16px">Les tests seront bientôt disponibles.</p>'}`},
 recherche(){return `<h1>Recherche</h1><label class="sbox" style="margin-top:16px">${ic('search')}<input id="q" type="search" placeholder="Phonologie, compte rendu, connecteurs…" autocomplete="off"></label><div id="out" class="res" style="margin-top:14px"></div>`}
 };
 function chrome(cur){
-document.getElementById('tabs').innerHTML=TABS.map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,22)}${l}</a>`).join('')+`<a href="https://1cours1bot.fr" target="_blank" rel="noopener" aria-label="1cours1bot"><img class="tbot" src="assets/1c1b-icon.png" alt="">1c1b</a>`;
+document.getElementById('tabs').innerHTML=TABS.map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,22)}${l}</a>`).join('');
 document.getElementById('top').innerHTML=`<img src="assets/lsa-logo.png" alt=""><div class="tt"><b>BTS MCO</b><small>LSA Toolbox · Mme Huet</small></div><a class="ib" href="#recherche" aria-label="Rechercher">${ic('search',22)}</a>`;
 document.getElementById('side').innerHTML=`<div class="brand"><img src="assets/lsa-logo.png" alt=""><div><b>BTS MCO</b><small>LSA Toolbox · Mme Huet</small></div></div>
 <nav>${[...TABS,['recherche','Recherche','search']].map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,19)}${l}</a>`).join('')}</nav>
