@@ -189,7 +189,7 @@ const GK=[
 {g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-mco.html#gb-uk'},
 {g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-mco.html#fifty-states'}];
 const ALL=[...PH.map(x=>({...x,ct:'Phonologie'})),...CR.map(x=>({...x,ct:'Compte rendu'})),...VI.map(x=>({...x,ct:'Vidéo'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...TS.map(x=>({...x,ct:'Tests'})),...GK.map(x=>({...x,ct:'General Knowledge'}))];
-const TABS=[['home','Accueil','home'],['phonologie','Phonologie','pod'],['cr','Compte rendu','ess'],['vocabulaire','Vocabulaire','voc'],['video','Vidéo','vid'],['tests','Tests','test']];
+const TABS=[['home','Accueil','home'],['phonologie','Phonologie','pod'],['cr','Compte rendu','ess'],['video','Vidéo','vid'],['vocabulaire','Vocabulaire','voc'],['tests','Tests','test']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-t]');if(a)try{localStorage.setItem('mco-last',JSON.stringify({t:a.dataset.t,h:a.getAttribute('href')}))}catch(_){}});
 const cls={cr:'ess',ph:'sum',voc:'voc',vid:'vid',pod:'vid',tests:'sum'},ico={cr:'ess',ph:'pod',voc:'voc',vid:'vid',pod:'pod',tests:'test'};
